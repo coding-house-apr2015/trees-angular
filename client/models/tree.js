@@ -17,5 +17,9 @@ angular.module('trees')
     return $http.put(nodeUrl + '/trees/' + treeId + '/grow');
   };
 
+  Tree.plague = function(damage){
+    return $http.put(nodeUrl + '/trees/plague/' + damage);
+  };
+
   return Tree;
 });

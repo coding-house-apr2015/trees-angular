@@ -8,7 +8,7 @@ angular.module('cmPlagueModule', [])
   o.templateUrl = '/directives/cm-plague/cm-plague.html';
   o.scope = {};
   // o.link = function($scope, element, attrs){};
-  o.controller = function($interval, $http, $window, $scope){
+  o.controller = function($interval, $http, $window, $scope, Tree){
     function getPlague(){
       var url = 'https://qrng.anu.edu.au/API/jsonI.php?length=1&type=uint16';
       $window.jQuery.get(url, function(response){
@@ -37,6 +37,13 @@ angular.module('cmPlagueModule', [])
 
         $scope.plague = plague;
         $scope.damage = damage;
+        Tree.plague(damage)
+        .then(function(){
+          Tree.find()
+          .then(function(res){
+            $scope.$emit('trees', res.data.trees);
+          });
+        });
       });
     }
 

@@ -18,6 +18,10 @@ angular.module('trees')
     });
   });
 
+  $scope.$on('trees', function(event, data){
+    $scope.trees = data;
+  });
+
   $scope.plantTree = function(){
     Tree.create()
     .then(function(response){
