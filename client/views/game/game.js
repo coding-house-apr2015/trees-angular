@@ -1,10 +1,10 @@
 'use strict';
 
 angular.module('trees')
-.controller('GameCtrl', function($scope, Life, Tree){
+.controller('GameCtrl', function($rootScope, $scope, Life, Tree){
   Life.find()
   .then(function(lifeResponse){
-    $scope.lives = lifeResponse.data.lives;
+    $rootScope.lives = lifeResponse.data.lives;
 
     Tree.find()
     .then(function(treeResponse){
