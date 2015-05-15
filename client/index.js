@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('trees', ['firebase', 'ui.router', 'cmTreeModule']);
+angular.module('trees', ['firebase', 'ui.router', 'cmTreeModule', 'cmPlagueModule']);
